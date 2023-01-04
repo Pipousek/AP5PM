@@ -11,9 +11,7 @@ Projekt pro výuku mobilních aplikací na Univerzitě Tomáše Bati (Fakulta ap
 
 ## Orientace v projektu
 
-- Jednotlové branche jsou pojmenovány podle hodin kdy studenti chodí na cvičení.
-- Jednotlivé commity jsou přidávány podle cvičení, které proběhlo a souhrně obsahuje vše, co bylo přidáno nebo
-  modifikováno.
+- Jednotlivé commity jsou přidávány náhodně.
 
 ## Oficiální dokumentace
 
@@ -25,11 +23,8 @@ Projekt pro výuku mobilních aplikací na Univerzitě Tomáše Bati (Fakulta ap
 1. Naklonujte si REPO (`branch`, kterou potřebujete)
 2. Otevřte projekt ve vámi zvoleném IDE a v příkazovém rádku
 3. Nainstalujte všechny NPM knihovny - `npm install`
-4. Nastavit svůj API klíč pro [Open Weather Map](https://openweathermap.org)
-   v [src/environments/environment.ts](src/environments/environment.ts)
-   a  [src/environments/environment.prod.ts](src/environments/environment.prod.ts).
-5. (* pokud půjde update na Firebase) Upravit ID aplikace pro firebase v [src/.firebaserc](src/.firebaserc)
-6. Spusťte Ionic dev server pomocí `ionic serve`
+4. (* pokud půjde update na Firebase) Upravit ID aplikace pro firebase v [src/.firebaserc](src/.firebaserc)
+5. Spusťte Ionic dev server pomocí `ionic serve`
 
 ## Android build
 
