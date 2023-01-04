@@ -42,7 +42,7 @@ Projekt pro výuku mobilních aplikací na Univerzitě Tomáše Bati (Fakulta ap
 > 
 > [Oficiální dokumentace](https://ionicframework.com/docs/developing/android)
 
-1. Spustit `ionic cap sync android --prod` je nutné míst nastavn API klíč v [src/environments/environment.prod.ts](src/environments/environment.prod.ts). 
+1. Spustit `ionic cap sync android --prod`
 2. Otevřít Android studio nebo `ionic open android` (**otevírá se složka [android](android) - kde je android projekt!**)
 3. Spustit na reálném zařízení nebo emulátoru.
 
