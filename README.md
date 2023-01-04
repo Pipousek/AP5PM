@@ -6,6 +6,9 @@
 <h1 align="center">
   AP5PM - Ionic Angular
 </h1>
+<h2>
+  Projekt - Game of Thrones Quotes
+</h2>
 
 Projekt pro výuku mobilních aplikací na Univerzitě Tomáše Bati (Fakulta aplikované informatiky).
 
