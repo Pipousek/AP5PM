@@ -47,7 +47,7 @@ export class Tab1Page {
 
   private async initQuotes() {
     let quotes = await this.storageService.getData("quotes")
-    if(quotes) {
+    if(quotes && quotes.length != 0) {
       this.quotes = quotes;
     }
     else {
