@@ -2,13 +2,14 @@
     <img alt="Ionic" src="https://github.com/ionic-team/ionic-framework/blob/main/.github/assets/logo.png?raw=true" width="60" style="margin: 20px" />
     <img alt="Angular" src="https://angular.io/assets/images/logos/angular/logo-nav@2x.png" height="60" style="margin: 20px" />
 </p>
-
+<div>
 <h1 align="center">
   AP5PM - Ionic Angular
 </h1>
-<h2>
+<h2 align="center">
   Projekt - Game of Thrones Quotes
 </h2>
+</div>
 
 Projekt pro výuku mobilních aplikací na Univerzitě Tomáše Bati (Fakulta aplikované informatiky).
 
