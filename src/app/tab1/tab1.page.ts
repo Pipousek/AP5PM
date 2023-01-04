@@ -1,10 +1,7 @@
 import {Component} from '@angular/core';
 import {ApiService} from '../services/api/api.service';
-import {Observable} from 'rxjs';
-import {MainQuote} from '../models/weather.model';
-import {ModalController} from '@ionic/angular';
-import {SettingsPage} from '../pages/settings/settings.page';
-import {PlacesService} from '../services/places/places.service';
+import {MainQuote} from '../models/quote.model';
+import {QuotesService} from '../services/quotes/quotes.service';
 import {StorageService} from '../services/storage/storage.service';
 
 @Component({
@@ -15,67 +12,47 @@ import {StorageService} from '../services/storage/storage.service';
 export class Tab1Page {
 
   /**
-   * Custom observable array
+   * Custom array
    */
-  quote$: Observable<MainQuote>[] = [];
+  quotes: MainQuote[] = [];
 
   constructor(
     // get custom Service from DI
     private apiService: ApiService,
-    private modalCtrl: ModalController,
-    private placesService: PlacesService,
+    private quotesService: QuotesService,
     private storageService: StorageService
   ) {
-    this.initWeather();
-  }
-
-  /**
-   * Click event
-   */
-  openSettings() {
-    this.openModal();
-  }
-
-  /**
-   * Open Ionic modal
-   */
-  async openModal() {
-    const modal = await this.modalCtrl.create({
-      component: SettingsPage,
-    });
-
-    await modal.present();
+    this.initQuotes();
   }
 
   openDetail(quote: MainQuote) {
-    // set weather detail
-    this.placesService.detail = quote;
+    this.quotesService.detail = quote;
   }
 
-  deleteQuote() {
-    alert("Delete");
+  deleteQuote(quote) {
+    let index = this.quotes.indexOf(quote);
+    if(index > -1) {
+      this.quotes.splice(index, 1);
+    }
+    this.storageService.setData("quotes", this.quotes);
   }
 
-  generateQuote() {
-    let newQuote = this.apiService.getQuote();
-    this.quote$.push(newQuote);
-    this.storageService.setData("quotes", newQuote);
+  async generateQuote() {
+    const newQuote = await this.apiService.getQuote();
+    console.log(newQuote);
+    console.log(newQuote);
+    this.quotes.push(newQuote);
+    this.storageService.setData("quotes", this.quotes);
   }
 
-  /**
-   * Init weather for homepage cards
-   *
-   * @private
-   */
-  private initWeather() {
-    // loop all places
-    this.placesService.places$.subscribe(places => {
-      this.quote$ = [];
-      places.forEach(place => {
-        if (place.homepage) {
-          this.quote$.push(this.apiService.getQuote());
-        }
-      });
-    });
+  private async initQuotes() {
+    let quotes = await this.storageService.getData("quotes")
+    if(quotes) {
+      this.quotes = quotes;
+    }
+    else {
+      this.quotes.push(await this.apiService.getQuote());
+      this.storageService.setData("quotes", this.quotes);
+    }
   }
 }

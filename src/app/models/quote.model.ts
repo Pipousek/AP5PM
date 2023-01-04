@@ -10,6 +10,6 @@ export interface CharacterData {
 }
 
 export interface HouseData {
-  name: string;
-  slug: string;
+  name?: string;
+  slug?: string;
 }

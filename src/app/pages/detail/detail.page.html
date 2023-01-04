@@ -8,28 +8,34 @@
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    <ion-text>{{quote.sentence}}</ion-text>
-  </div>
-
-  <ion-list>
-    <ion-item>
-      <ion-icon slot="start" name="thermometer-outline"></ion-icon>
-      <ion-label>
-        {{quote.character.slug}}
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-icon slot="start" name="thermometer-outline"></ion-icon>
-      <ion-label>
-        {{quote.character.house.name}}
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-icon slot="start" name="thermometer-outline"></ion-icon>
-      <ion-label>
-        {{quote.character.house.slug}}
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Detail</ion-card-subtitle>
+      <ion-card-title>{{quote.sentence}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="ion-no-padding">
+      <ion-list>
+        <ion-item>
+          <ion-label>
+            <h2>Character Nickname</h2>
+            <h3>{{quote.character.slug}}</h3>
+          </ion-label>
+        </ion-item>
+  
+        <ion-item *ngIf="quote.character.house.name != null">
+          <ion-label>
+            <h2>Family Name</h2>
+            <h3>{{quote.character.house.name}}</h3>
+          </ion-label>
+        </ion-item>
+  
+        <ion-item *ngIf="quote.character.house.slug != null">
+          <ion-label>
+            <h2>Family Nickname</h2>
+            <h3>{{quote.character.house.slug}}</h3>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

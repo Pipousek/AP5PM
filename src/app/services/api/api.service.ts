@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
-import {Observable} from 'rxjs';
-import {MainQuote} from '../../models/weather.model';
+import {MainQuote} from '../../models/quote.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +14,10 @@ export class ApiService {
   }
 
   /**
-   * Get weather from API
+   * Get quote from API
    *
    */
-  getQuote(): Observable<MainQuote> {
-    return this.http.get<MainQuote>(environment.api.baseUrl);
+  getQuote(): Promise<MainQuote> {
+    return this.http.get<MainQuote>(environment.api.baseUrl).toPromise();
   }
 }

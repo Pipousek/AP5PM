@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {PlacesService} from '../../services/places/places.service';
-import {MainQuote} from "../../models/weather.model";
+import {QuotesService} from '../../services/quotes/quotes.service';
+import {MainQuote} from "../../models/quote.model";
 
 @Component({
   selector: 'app-detail',
@@ -12,12 +12,12 @@ export class DetailPage implements OnInit {
   quote: MainQuote;
 
   constructor(
-    private placesService: PlacesService
+    private quotesService: QuotesService
   ) {
   }
 
   ngOnInit() {
-    this.quote = this.placesService.detail;
+    this.quote = this.quotesService.detail;
   }
 
 }
