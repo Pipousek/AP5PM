@@ -25,10 +25,21 @@ export class Tab1Page {
     this.initQuotes();
   }
 
+  /**
+   * Opens detail page of selected quote
+   * 
+   * @param quote Selected quote
+   */
   openDetail(quote: MainQuote) {
     this.quotesService.detail = quote;
   }
 
+  /**
+   * Delete a selected @quote
+   * 
+   * @param quote Quote to delete
+   * @index Index of quote to delete
+   */
   deleteQuote(quote) {
     let index = this.quotes.indexOf(quote);
     if(index > -1) {
@@ -37,14 +48,30 @@ export class Tab1Page {
     this.storageService.setData("quotes", this.quotes);
   }
 
+  /**
+   * Generates a new Quote, push it to array @quotes
+   * and store it to local storage using storageService
+   * 
+   * @newQuote Const where new quote from API is stored
+   */
   async generateQuote() {
     const newQuote = await this.apiService.getQuote();
-    console.log(newQuote);
-    console.log(newQuote);
     this.quotes.push(newQuote);
     this.storageService.setData("quotes", this.quotes);
+
+    // Use for debugging
+    //console.log(newQuote);
+    //console.log(newQuote);
   }
 
+  /**
+   * Initialization at the start
+   * Load local storage into variable @quotes
+   * If @quotes is empty, generate new quote from API,
+   * push it into array @quotes and store it into local storage
+   * 
+   * @quotes Array with quotes
+   */
   private async initQuotes() {
     let quotes = await this.storageService.getData("quotes")
     if(quotes && quotes.length != 0) {

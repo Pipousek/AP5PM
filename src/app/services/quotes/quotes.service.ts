@@ -6,6 +6,9 @@ import {MainQuote} from '../../models/quote.model';
 })
 export class QuotesService {
 
+  /**
+   * Structure of the quote
+   */
   public detail: MainQuote = {
     sentence: "Sentence",
     character: {

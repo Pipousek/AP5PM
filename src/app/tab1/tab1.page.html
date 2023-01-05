@@ -13,12 +13,11 @@
     </ion-toolbar>
   </ion-header>
   
-  <!-- Loop of observable array -->
-  <!-- card component with weather from API, open detail actions -->
+  <!-- Loop of array -->
   <ion-item *ngFor="let quote of quotes" class="ion-padding-bottom ion-no-margin">
+    <!--  Item component with quote from API, open detail actions.
+          Contains quote and author name. -->
     <ion-label routerLink="/detail" (click)="openDetail(quote)" class="ion-no-margin ion-no-padding">
-    <!-- card show only if data downloaded from server | async in if -->
-    <!-- let weather = data injected from if async state -->
       <ion-card-header class="ion-text-center">
         <ion-card-title>
 
@@ -38,6 +37,7 @@
       </ion-card-header>
     </ion-label>
 
+    <!-- Button (trash icon) which deletes quote item -->
     <ion-button slot="end" fill="clear" size="default" class="ion-no-margin" (click)="deleteQuote(quote)">
       <ion-icon slot="icon-only" name="trash-outline" color="danger"></ion-icon>
     </ion-button>
@@ -50,6 +50,7 @@
     <ion-grid>
       <ion-row class="ion-no-margin ion-no-padding">
         <ion-col style="text-align: center">
+          <!-- Button (chat icon) which qenerates quote item -->
           <ion-button fill="outline" shape="round" class="ion-no-margin" (click)="generateQuote()">
             <ion-icon slot="icon-only" name="chatbox-ellipses-outline" size="large"></ion-icon>
           </ion-button>
